@@ -1,0 +1,14 @@
+{% extends "walidator_vat/base.html" %}
+{% block content %}
+<p>Walidator do ładowania plików</p>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="file" name="myfile">
+    <button type="submit">Upload</button>
+  </form>
+<p>Lista zwalidowanych plików:</p>
+<div id="zwalidowane_pliki">
+    {% include "walidator_vat\zwalidowane_pliki.html" %}
+</div>
+{% endblock content %}
